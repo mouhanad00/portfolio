@@ -92,7 +92,7 @@ export const projects = [
     {
         id: 6,
         title: "يوم مع مدرس علي",
-        category: "Digital Content",
+        category: "NA",
         brief: "Education story — a teacher’s journey with “علم لأجل قطر”",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/digital%20content/Draft03-%D9%8A%D9%88%D9%85-%D9%85%D8%B9-%D9%85%D8%AF%D8%B1%D8%B3-%D8%B9%D9%84%D9%8A.mp4",
         image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
