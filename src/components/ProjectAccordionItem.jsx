@@ -5,7 +5,9 @@ import '../index.css';
 
 const ProjectAccordionItem = ({ project, isActive, onToggle }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const [hasVideoError, setHasVideoError] = useState(false);
     const contentRef = useRef(null);
+    const videoRef = useRef(null);
 
     return (
         <div
@@ -16,14 +18,22 @@ const ProjectAccordionItem = ({ project, isActive, onToggle }) => {
         >
             <div className="accordion-header">
                 <div className="accordion-visual">
-                    {project.video ? (
+                    {project.video && !hasVideoError ? (
                         <VideoPlayer
+                            ref={videoRef}
                             src={project.video}
                             className={`accordion-video visible`}
+                            onError={() => setHasVideoError(true)}
+                        />
+                    ) : project.image ? (
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            className="accordion-video visible object-cover"
                         />
                     ) : (
                         <div className="accordion-video visible flex items-center justify-center bg-black-deep text-gold-metallic/50 text-[8px] tracking-[0.3em] uppercase">
-                            Video uploading...
+                            Media pending...
                         </div>
                     )}
                     <div className="visual-overlay"></div>
@@ -49,7 +59,16 @@ const ProjectAccordionItem = ({ project, isActive, onToggle }) => {
                             <span className="label">CATEGORY</span>
                             <p>{project.category}</p>
                         </div>
+                        <div className="content-block">
+                            <span className="label">ROLE</span>
+                            <p>Cinematographer</p>
+                        </div>
+                        <div className="content-block">
+                            <span className="label">YEAR</span>
+                            <p>2026</p>
+                        </div>
                         <div className="content-block description">
+                            <span className="label">OVERVIEW</span>
                             <p>{project.brief}</p>
                         </div>
                         <div className="content-action">
@@ -101,6 +120,7 @@ const ProjectAccordionItem = ({ project, isActive, onToggle }) => {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top;
             position: absolute;
             top: 0;
             left: 0;
@@ -171,7 +191,7 @@ const ProjectAccordionItem = ({ project, isActive, onToggle }) => {
 
         .content-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 2fr 1fr;
             gap: 2rem;
             border-top: 1px solid rgba(255,255,255,0.05);
             padding-top: 3rem;

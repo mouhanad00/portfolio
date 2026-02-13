@@ -11,6 +11,7 @@ const ProjectDetail = () => {
   const [activeVideoUrl, setActiveVideoUrl] = useState(project?.video);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [hasVideoError, setHasVideoError] = useState(false);
   const videoRef = useRef(null);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 1000], [0, 400]);
@@ -33,6 +34,20 @@ const ProjectDetail = () => {
     }
   };
 
+  const handleFullscreen = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (videoRef.current) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen();
+      } else if (videoRef.current.webkitRequestFullscreen) { /* Safari */
+        videoRef.current.webkitRequestFullscreen();
+      } else if (videoRef.current.msRequestFullscreen) { /* IE11 */
+        videoRef.current.msRequestFullscreen();
+      }
+    }
+  };
+
   if (!project) return <div className="h-screen flex items-center justify-center text-ivory">Project not found</div>;
 
   const nextProjectId = project.id === projects.length ? 1 : project.id + 1;
@@ -47,15 +62,22 @@ const ProjectDetail = () => {
           style={{ y }}
           className="absolute inset-0 w-full h-full"
         >
-          {activeVideoUrl ? (
+          {activeVideoUrl && !hasVideoError ? (
             <VideoPlayer
               ref={videoRef}
               src={activeVideoUrl}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
+              onError={() => setHasVideoError(true)}
+            />
+          ) : project.image ? (
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover object-top"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-black-deep text-gold-metallic/50 text-xs tracking-[0.3em] uppercase">
-              Video uploading...
+              Media pending...
             </div>
           )}
           <div className="absolute inset-0 bg-black/40 z-0" />
@@ -105,65 +127,66 @@ const ProjectDetail = () => {
           )}
         </div>
 
-        {/* Sound Toggle */}
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          onClick={toggleSound}
-          className="absolute bottom-12 right-12 z-20 group flex items-center gap-3 text-white/40 hover:text-gold-metallic transition-all duration-300 outline-none"
-        >
-          <span className="text-[10px] tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition-opacity">
-            {isMuted ? 'Unmute' : 'Mute'}
-          </span>
-          <div className="w-10 h-10 border border-white/10 flex items-center justify-center group-hover:border-gold-metallic/50 transition-colors">
-            {isMuted ? (
+        {/* Media Controls */}
+        <div className="absolute bottom-12 right-12 z-20 flex items-center gap-6">
+          {/* Fullscreen Toggle */}
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.1 }}
+            onClick={handleFullscreen}
+            className="group flex items-center gap-3 text-white/40 hover:text-gold-metallic transition-all duration-300 outline-none"
+          >
+            <span className="text-[10px] tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+              Fullscreen
+            </span>
+            <div className="w-10 h-10 border border-white/10 flex items-center justify-center group-hover:border-gold-metallic/50 transition-colors">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-                <line x1="23" y1="9" x2="17" y2="15"></line>
-                <line x1="17" y1="9" x2="23" y2="15"></line>
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
               </svg>
-            ) : (
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-              </svg>
-            )}
-          </div>
-        </motion.button>
+            </div>
+          </motion.button>
+
+          {/* Sound Toggle */}
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            onClick={toggleSound}
+            className="group flex items-center gap-3 text-white/40 hover:text-gold-metallic transition-all duration-300 outline-none"
+          >
+            <span className="text-[10px] tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+              {isMuted ? 'Unmute' : 'Mute'}
+            </span>
+            <div className="w-10 h-10 border border-white/10 flex items-center justify-center group-hover:border-gold-metallic/50 transition-colors">
+              {isMuted ? (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                  <line x1="23" y1="9" x2="17" y2="15"></line>
+                  <line x1="17" y1="9" x2="23" y2="15"></line>
+                </svg>
+              ) : (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+              )}
+            </div>
+          </motion.button>
+        </div>
       </div>
 
       <div className="max-w-[1800px] mx-auto px-4 md:px-12">
 
-        {/* 2. OVERVIEW & CREDITS */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 py-32 border-b border-white/5">
-          <div className="lg:col-span-8">
-            <h3 className="text-3xl md:text-5xl font-serif mb-12 leading-tight whitespace-pre-line text-ivory">
-              {project.brief}
-            </h3>
-          </div>
-
-          <div className="lg:col-span-4 space-y-12">
-            <div>
-              <h3 className="text-xs text-gold-metallic tracking-widest uppercase mb-4">Category</h3>
-              <p className="text-ivory/80">{project.category}</p>
-            </div>
-            <div>
-              <h3 className="text-xs text-gold-metallic tracking-widest uppercase mb-4">Role</h3>
-              <p className="text-ivory/80">Cinematographer & Team Lead</p>
-            </div>
-          </div>
-        </div>
-
-        {/* 3. BEHIND THE SCENES GALLERY (COLLAPSIBLE) */}
+        {/* 2. OPERATOR SELECTS GALLERY (COLLAPSIBLE) */}
         {project.bts && project.bts.stills && project.bts.stills.length > 0 && (
-          <div className="py-32 border-t border-white/5">
+          <div className="py-32 border-b border-white/5">
             <button
               onClick={() => setIsGalleryOpen(!isGalleryOpen)}
               className="w-full flex justify-between items-end group outline-none"
             >
-              <h3 className="text-4xl font-serif group-hover:text-gold-metallic transition-colors tracking-tight text-white">Behind The Scenes</h3>
+              <h3 className="text-4xl font-serif group-hover:text-gold-metallic transition-colors tracking-tight text-white">Operator Selects (B-roll shot by me)</h3>
               <div className="flex flex-col items-end">
                 <span className="text-[10px] text-gold-metallic tracking-[0.3em] uppercase mb-2">Process</span>
                 <span className="text-2xl font-light text-ivory/40">
@@ -190,9 +213,9 @@ const ProjectDetail = () => {
                       >
                         <img
                           src={imgUrl}
-                          alt={`Behind the scenes shot ${i + 1}`}
+                          alt={`Shot from operator selects ${i + 1}`}
                           loading="lazy"
-                          className="w-full h-full object-cover aspect-video"
+                          className="w-full h-full object-cover object-top aspect-video"
                         />
                       </motion.div>
                     ))}
@@ -202,6 +225,26 @@ const ProjectDetail = () => {
             </AnimatePresence>
           </div>
         )}
+
+        {/* 3. OVERVIEW & CREDITS */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 py-32 border-b border-white/5">
+          <div className="lg:col-span-8">
+            <h3 className="text-3xl md:text-5xl font-serif mb-12 leading-tight whitespace-pre-line text-ivory">
+              {project.brief}
+            </h3>
+          </div>
+
+          <div className="lg:col-span-4 space-y-12">
+            <div>
+              <h3 className="text-xs text-gold-metallic tracking-widest uppercase mb-4">Category</h3>
+              <p className="text-ivory/80">{project.category}</p>
+            </div>
+            <div>
+              <h3 className="text-xs text-gold-metallic tracking-widest uppercase mb-4">Role</h3>
+              <p className="text-ivory/80">Cinematographer & Team Lead</p>
+            </div>
+          </div>
+        </div>
 
         {/* 4. NEXT PROJECT / CTA */}
         <div className="py-48 text-center border-t border-white/5">

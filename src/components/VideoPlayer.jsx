@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 
-const VideoPlayer = forwardRef(({ src, className = "" }, ref) => {
+const VideoPlayer = forwardRef(({ src, className = "", controls = true, onError }, ref) => {
     if (!src) return null;
 
     return (
@@ -11,10 +11,12 @@ const VideoPlayer = forwardRef(({ src, className = "" }, ref) => {
             muted
             loop
             playsInline
+            controls={controls}
             preload="metadata"
-            className={`w-full h-full object-cover ${className}`}
+            onError={onError}
+            className={`w-full h-full object-cover object-top ${className}`}
         >
-            <source src={src} type="video/mp4" />
+            <source src={src} />
             Your browser does not support the video tag.
         </video>
     );
