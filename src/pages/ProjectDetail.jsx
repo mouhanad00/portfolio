@@ -9,7 +9,7 @@ const ProjectDetail = () => {
   const { id } = useParams();
   const project = projects.find(p => p.id === parseInt(id));
   const [activeVideoUrl, setActiveVideoUrl] = useState(project?.video);
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [hasVideoError, setHasVideoError] = useState(false);
   const videoRef = useRef(null);
@@ -20,7 +20,7 @@ const ProjectDetail = () => {
     window.scrollTo(0, 0);
     if (project) {
       setActiveVideoUrl(project.video);
-      setIsGalleryOpen(false);
+      setIsGalleryOpen(true);
     }
   }, [id, project]);
 
