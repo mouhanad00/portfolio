@@ -3,7 +3,7 @@
 export const projects = [
     {
         id: 1,
-        title: "فيلم كلية الشرطة",
+        title: "Polic College Movie",
         category: "Documentaries",
         brief: "8th Police Cadet Graduation Film | Ministry of Interior (Qatar) — Documentary \nCaptured over 7.5 months of embedded access, following cadets throughout their full training journey for a film premiered at the graduation ceremony in front of Qatar’s Minister of Interior. Delivered consistently high-end cinematic lighting across multiple locations with a dedicated 10-person crew, combining drones/GoPros for action immersion with gimbal slow-motion for drama and handheld energy for high-intensity sequences.",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/Documentary/%D9%81%D9%8A%D9%84%D9%85%20%D9%83%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B7%D8%A9/%D9%81%D9%8A%D9%84%D9%85%20%D9%83%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B7%D8%A9-Final.mp4",
@@ -24,7 +24,7 @@ export const projects = [
     },
     {
         id: 2,
-        title: "مشيرب",
+        title: "Msheireb",
         category: "Digital Content",
         brief: "Place portrait — the visual allure of Msheireb Downtown Doha",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/content%20creation/%D9%85%D8%B4%D9%8A%D8%B1%D8%A8.mp4",
@@ -57,7 +57,7 @@ export const projects = [
     },
     {
         id: 4,
-        title: "مطبخ نورة",
+        title: "Noura's Kitchen",
         category: "Commercial",
         brief: "Noura | Ministry of Justice (Qatar) — TVC & Social Ad (2nd AC) \nWorked as 2nd AC on a narrative-led campaign following one family’s perspective on “Noura,” culminating in the reveal of debt, a failed business, and imprisonment. Managed RED Komodo camera prep and full gear support for the DP, then stepped in mid-shoot as a camera operator to capture key B-roll; with no DIT on set, I also handled data wrangling, take logging, and rapid lens changes—maintaining continuity and pace under constant turnover. Note: This project was executed under the direction of the Lead DP; my contribution focused on camera assistance and select B-roll operation as part of the unit.",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/Ads/%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84/nora%20draft%205.mp4",
@@ -91,7 +91,7 @@ export const projects = [
     },
     {
         id: 6,
-        title: "يوم مع مدرس علي",
+        title: "A Day with teacher Ali",
         category: "NA",
         brief: "Education story — a teacher’s journey with “علم لأجل قطر”",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/digital%20content/Draft03-%D9%8A%D9%88%D9%85-%D9%85%D8%B9-%D9%85%D8%AF%D8%B1%D8%B3-%D8%B9%D9%84%D9%8A.mp4",
@@ -102,7 +102,7 @@ export const projects = [
     },
     {
         id: 7,
-        title: "فيلم إعادة تأهيل السجين",
+        title: "Prisoner Rehabilitation Movie",
         category: "Documentaries",
         brief: "Prisoner Rehabilitation | Ministry of Interior (Qatar) — Documentary \nShot on location inside Qatar’s prison over a tight two-day schedule for a high-profile national event, while leading a 12-person crew and handling DP + lighting direction (and overall directing) responsibilities. Crafted a warm, immersive handheld POV language, supported by fully captured production sound—every texture and SFX in the film was recorded on set to preserve authenticity.",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/Documentary/%D9%81%D9%8A%D9%84%D9%85%20%D8%A5%D8%B9%D8%A7%D8%AF%D8%A9%20%D8%AA%D8%A3%D9%87%D9%8A%D9%84%20%D8%A7%D9%84%D8%B3%D8%AC%D9%8A%D9%86/%D9%81%D9%84%D9%85%20%D8%AA%D8%B9%D8%B1%D9%8A%D9%81%D9%8A%20%D9%84%D9%84%D8%A7%D8%B3%D8%A8%D9%88%D8%B9%20%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D8%AC%D9%8A%20%D8%A7%D9%84%D9%85%D9%88%D8%AD%D8%AF%20%D9%84%D9%84%D9%86%D8%B2%D9%8A%D9%84.mp4",
@@ -180,7 +180,7 @@ export const projects = [
     },
     {
         id: 12,
-        title: "درب الساعي",
+        title: "Darb Al Saai",
         category: "Event Coverage",
         brief: "Darb Al Saai | Ministry of Interior (Qatar) — Event Recap \nServed as lead cinematographer covering the Ministry of Interior’s booth at Darb Al Saai, directing a four-person capture team plus editor and coordinator to deliver a same-day recap. With the venue’s large footprint and detail-heavy requirements, I split operators across key zones while prioritizing the main moments myself, then did a full sweep to secure high-quality “safety coverage” for every area—ensuring the edit was complete and consistent by end of day.",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/Event%20coverage/darb%20alsa3y%202026/%D8%AF%D8%B1%D8%A8%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A2.mp4",
@@ -191,10 +191,10 @@ export const projects = [
     },
     {
         id: 13,
-        title: "معرض اكسبو الاطفال",
+        title: "Kids Expo",
         category: "Event Coverage",
         brief: "Kids Expo | Ministry of Interior (Qatar) — Event Recap \nLed on-site production as lead cinematographer and team lead, delivering a polished same-day recap (plus live stories) under tight time constraints with editing running on location. Navigated a crowded VIP opening walkthrough by securing key establishing frames early, then shifting to 45–90° angles and detail-driven close-ups to maintain clean compositions and dynamic coverage—published on the Ministry’s official Instagram.",
-        video: "https://storage.googleapis.com/mohamed-portfolio-media/Event%20coverage/%D9%85%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%83%D8%B3%D8%A8%D9%88%20%D9%84%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84%20(%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AF%D8%A7%D8%AE%D9%84%D9%8A%D8%A9)/%D9%85%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%83%D8%B3%D8%A8%D9%88%20%D8%A7%D9%84%D8%A7%D8%B7%D9%81%D8%A7%D9%84.MP4",
+        video: "https://storage.googleapis.com/mohamed-portfolio-media/Event%20coverage/%D9%85%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%83%D8%B3%D8%A8%D9%88%20%D8%A7%D9%84%D8%A7%D8%B7%D9%81%D8%A7%D9%84%20(%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AF%D8%A7%D8%AE%D9%84%D9%8A%D8%A9)/%D9%85%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%83%D8%B3%D8%A8%D9%88%20%D8%A7%D9%84%D8%A7%D8%B7%D9%81%D8%A7%D9%84.MP4",
         image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
         bts: {
             stills: []
@@ -202,7 +202,7 @@ export const projects = [
     },
     {
         id: 14,
-        title: "مهرجان الموسيقى",
+        title: "Music Festival",
         category: "Event Coverage",
         brief: "Music Festival | Ministry of Interior (Qatar) — Event Recap \nLed cinematography for a fast, VIP-sensitive one-day music event with a drone operator and stills photographer, delivering a same-day recap under extreme time pressure (the live program ran only ~30 minutes). To protect coverage quality, I pre-shot key beauty and atmospheric sequences two hours early and integrated controlled “event-adjacent” visuals in the edit, allowing every on-show frame to be deliberate, clean, and repeat-free.",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/Event%20coverage/%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86%20%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%8A%D9%82%D9%89/%20v1%20%D9%81%D8%B9%D8%A7%D9%84%D9%8A%D8%A7%D8%AA%20%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86%20%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%8A%D9%82%D9%89.mp4",
