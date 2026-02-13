@@ -225,7 +225,7 @@ const ProjectDetail = () => {
                           src={imgUrl}
                           alt={`Shot from operator selects ${i + 1}`}
                           loading="lazy"
-                          className="w-full h-full object-cover object-top aspect-video"
+                          className="w-full h-full object-contain object-center aspect-video bg-black/40"
                         />
                       </motion.div>
                     ))}

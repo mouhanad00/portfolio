@@ -6,7 +6,8 @@ const About = () => {
       <div className="about-hero">
         <div className="portrait-container fade-in">
           <img
-            src="https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/F4756ADD-8A7C-444D-85F3-D9EB3EF3F7B0.PNG"
+            src="https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg"
+            //src="https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/F4756ADD-8A7C-444D-85F3-D9EB3EF3F7B0.PNG"
             alt="Mohamed Akram Portrait"
             className="portrait-image"
             loading="lazy"
