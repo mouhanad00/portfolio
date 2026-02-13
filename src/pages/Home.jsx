@@ -32,16 +32,11 @@ const Home = () => {
         >
           <div className="absolute inset-0 bg-black-deep/40 z-10" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black-deep/20 to-black-deep z-10" />
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
+          <motion.img
+            src="https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg"
+            alt="Cinematic Hero"
             className="w-full h-full object-cover"
-            poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2622"
-          >
-            <source src="https://videos.pexels.com/video-files/5091624/5091624-uhd_3840_2160_25fps.mp4" type="video/mp4" />
-          </video>
+          />
         </motion.div>
 
         {/* Hero Content */}
@@ -50,9 +45,9 @@ const Home = () => {
           className="relative z-20 text-center space-y-8 p-4"
         >
           <motion.h1
-            className="text-7xl md:text-9xl font-serif font-thin tracking-tight mix-blend-difference text-white"
+            className="text-7xl md:text-9xl font-serif font-thin tracking-tight text-white"
           >
-            Ross<span className="text-gold-metallic">.</span>
+            Akram<span className="text-gold-metallic">.</span>
           </motion.h1>
 
           <motion.p
@@ -61,7 +56,7 @@ const Home = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-sm md:text-base tracking-[0.3em] uppercase text-ivory/60 font-sans max-w-md mx-auto"
           >
-            Director &middot;  Photographer  &middot;  Visual Artist
+            Cinematographer &middot; DOP &middot; Visual Storyteller
           </motion.p>
         </motion.div>
 

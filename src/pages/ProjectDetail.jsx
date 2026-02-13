@@ -1,12 +1,15 @@
 import { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { projects } from '../data';
+import VideoPlayer from '../components/VideoPlayer';
 import '../index.css';
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const project = projects.find(p => p.id === parseInt(id));
+  const [activeVideoUrl, setActiveVideoUrl] = useState(project?.video);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
   const { scrollY } = useScroll();
@@ -14,52 +17,49 @@ const ProjectDetail = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+    if (project) {
+      setActiveVideoUrl(project.video);
+      setIsGalleryOpen(false);
+    }
+  }, [id, project]);
+
+  const toggleSound = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (videoRef.current) {
+      const newState = !videoRef.current.muted;
+      videoRef.current.muted = newState;
+      setIsMuted(newState);
+    }
+  };
 
   if (!project) return <div className="h-screen flex items-center justify-center text-ivory">Project not found</div>;
 
   const nextProjectId = project.id === projects.length ? 1 : project.id + 1;
   const nextProject = projects.find(p => p.id === nextProjectId);
 
-  const toggleSound = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(!isMuted);
-    }
-  };
-
   return (
     <div className="bg-black-deep min-h-screen text-ivory selection:bg-gold-metallic selection:text-black-deep">
 
       {/* 1. HERO SECTION */}
-      <div className="relative h-screen w-full overflow-hidden">
+      <div className="relative h-screen w-full overflow-hidden bg-black">
         <motion.div
           style={{ y }}
           className="absolute inset-0 w-full h-full"
         >
-          {project.videoUrl ? (
-            <motion.video
-              layoutId={`project-image-${project.id}`}
+          {activeVideoUrl ? (
+            <VideoPlayer
               ref={videoRef}
-              autoPlay
-              muted={isMuted}
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-              poster={project.image}
-            >
-              <source src={project.videoUrl} type="video/mp4" />
-            </motion.video>
-          ) : (
-            <motion.img
-              layoutId={`project-image-${project.id}`}
-              src={project.image}
-              alt={project.title}
+              src={activeVideoUrl}
               className="w-full h-full object-cover"
             />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-black-deep text-gold-metallic/50 text-xs tracking-[0.3em] uppercase">
+              Video uploading...
+            </div>
           )}
-          <div className="absolute inset-0 bg-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black-deep" />
+          <div className="absolute inset-0 bg-black/40 z-0" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black-deep z-0" />
         </motion.div>
 
         {/* Hero Content */}
@@ -76,20 +76,62 @@ const ProjectDetail = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl md:text-9xl font-serif font-medium tracking-tight mb-8"
+            className="text-6xl md:text-9xl font-serif font-medium tracking-tight mb-8 text-white"
           >
             {project.title}
           </motion.h1>
 
-          {project.videoUrl && (
-            <button
-              onClick={toggleSound}
-              className="absolute bottom-12 right-12 text-xs tracking-[0.2em] uppercase border border-white/20 px-4 py-2 hover:bg-white hover:text-black transition-colors"
+          {/* Teaser Variations Selector */}
+          {project.teaserVariations && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="flex gap-4 mt-8 flex-wrap justify-center"
             >
-              {isMuted ? 'Sound On' : 'Sound Off'}
-            </button>
+              {project.teaserVariations.map((teaser, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveVideoUrl(teaser.video)}
+                  className={`text-[10px] tracking-[0.2em] uppercase px-4 py-2 border transition-all ${activeVideoUrl === teaser.video
+                    ? 'border-gold-metallic text-gold-metallic bg-gold-metallic/10'
+                    : 'border-white/20 text-white/60 hover:border-white/40'
+                    }`}
+                >
+                  {teaser.title}
+                </button>
+              ))}
+            </motion.div>
           )}
         </div>
+
+        {/* Sound Toggle */}
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          onClick={toggleSound}
+          className="absolute bottom-12 right-12 z-20 group flex items-center gap-3 text-white/40 hover:text-gold-metallic transition-all duration-300 outline-none"
+        >
+          <span className="text-[10px] tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition-opacity">
+            {isMuted ? 'Unmute' : 'Mute'}
+          </span>
+          <div className="w-10 h-10 border border-white/10 flex items-center justify-center group-hover:border-gold-metallic/50 transition-colors">
+            {isMuted ? (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </svg>
+            ) : (
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+            )}
+          </div>
+        </motion.button>
       </div>
 
       <div className="max-w-[1800px] mx-auto px-4 md:px-12">
@@ -97,87 +139,82 @@ const ProjectDetail = () => {
         {/* 2. OVERVIEW & CREDITS */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 py-32 border-b border-white/5">
           <div className="lg:col-span-8">
-            <h2 className="text-3xl md:text-5xl font-serif mb-12 leading-tight">{project.overview}</h2>
-            <div className="prose prose-lg prose-invert text-ivory/60 font-light">
-              <p>{project.description}</p>
-            </div>
+            <h3 className="text-3xl md:text-5xl font-serif mb-12 leading-tight whitespace-pre-line text-ivory">
+              {project.brief}
+            </h3>
           </div>
 
           <div className="lg:col-span-4 space-y-12">
             <div>
+              <h3 className="text-xs text-gold-metallic tracking-widest uppercase mb-4">Category</h3>
+              <p className="text-ivory/80">{project.category}</p>
+            </div>
+            <div>
               <h3 className="text-xs text-gold-metallic tracking-widest uppercase mb-4">Role</h3>
-              <p className="text-xl font-serif">{project.role}</p>
-            </div>
-            <div>
-              <h3 className="text-xs text-gold-metallic tracking-widest uppercase mb-4">Client</h3>
-              <p className="text-xl font-serif">{project.client}</p>
-            </div>
-            <div>
-              <h3 className="text-xs text-gold-metallic tracking-widest uppercase mb-4">Services</h3>
-              <ul className="space-y-2">
-                <li className="text-sm text-ivory/80 pb-2 border-b border-white/10 uppercase tracking-wide">{project.serviceDetails.title}</li>
-                {project.serviceDetails.deliverables.map((item, i) => (
-                  <li key={i} className="text-sm text-ivory/60">&bull; {item}</li>
-                ))}
-              </ul>
+              <p className="text-ivory/80">Cinematographer & Team Lead</p>
             </div>
           </div>
         </div>
 
-        {/* 3. GALLERY */}
-        <div className="py-32 space-y-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="aspect-[4/5] bg-neutral-900 overflow-hidden">
-              <img
-                src={project.image}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
-                alt={`${project.title} detail 1`}
-              />
-            </div>
-            <div className="aspect-[4/5] bg-neutral-900 overflow-hidden md:mt-32">
-              <img
-                src={project.detailImage2 || project.image || "https://images.unsplash.com/photo-1542206395-9f9feb8fd868?q=80&w=2574"}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
-                alt={`${project.title} detail 2`}
-              />
-            </div>
-          </div>
-
-          {/* Full Width Parallax */}
-          <div className="aspect-video w-full overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2622" className="absolute inset-0 w-full h-full object-cover grayscale opacity-60" alt="Wide" />
-          </div>
-        </div>
-
-        {/* 4. BEHIND THE SCENES */}
-        <div className="py-32 border-t border-white/5">
-          <div className="flex justify-between items-end mb-16">
-            <h3 className="text-4xl font-serif">Behind The Scenes</h3>
-            <span className="text-xs text-gold-metallic tracking-widest uppercase">Process</span>
-          </div>
-          <div className="grid grid-cols-3 gap-4">
-            {[1, 2, 3].map((_, i) => (
-              <div key={i} className="aspect-[9/16] bg-white/5 relative overflow-hidden group">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-xs tracking-widest opacity-50 group-hover:opacity-0 transition-opacity">PLAY BTS</span>
-                </div>
+        {/* 3. BEHIND THE SCENES GALLERY (COLLAPSIBLE) */}
+        {project.bts && project.bts.stills && project.bts.stills.length > 0 && (
+          <div className="py-32 border-t border-white/5">
+            <button
+              onClick={() => setIsGalleryOpen(!isGalleryOpen)}
+              className="w-full flex justify-between items-end group outline-none"
+            >
+              <h3 className="text-4xl font-serif group-hover:text-gold-metallic transition-colors tracking-tight text-white">Behind The Scenes</h3>
+              <div className="flex flex-col items-end">
+                <span className="text-[10px] text-gold-metallic tracking-[0.3em] uppercase mb-2">Process</span>
+                <span className="text-2xl font-light text-ivory/40">
+                  {isGalleryOpen ? '−' : '+'}
+                </span>
               </div>
-            ))}
+            </button>
+            <AnimatePresence>
+              {isGalleryOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="overflow-hidden"
+                >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-16">
+                    {project.bts.stills.map((imgUrl, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                      >
+                        <img
+                          src={imgUrl}
+                          alt={`Behind the scenes shot ${i + 1}`}
+                          loading="lazy"
+                          className="w-full h-full object-cover aspect-video"
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-        </div>
+        )}
 
-        {/* 5. NEXT PROJECT / CTA */}
+        {/* 4. NEXT PROJECT / CTA */}
         <div className="py-48 text-center border-t border-white/5">
           <span className="text-xs text-gold-metallic tracking-widest uppercase mb-8 block">Next Project</span>
           <Link to={`/project/${nextProjectId}`} className="group inline-block">
-            <h2 className="text-6xl md:text-9xl font-serif group-hover:text-gold-metallic transition-colors duration-500">
+            <h2 className="text-6xl md:text-9xl font-serif group-hover:text-gold-metallic transition-colors duration-500 text-white">
               {nextProject?.title}
             </h2>
             <div className="h-[1px] w-0 group-hover:w-full bg-gold-metallic transition-all duration-500 mt-4 mx-auto" />
           </Link>
 
           <div className="mt-32 p-12 glass border border-white/10 max-w-2xl mx-auto rounded-sm">
-            <h4 className="text-2xl font-serif mb-4">Interested in {project.category}?</h4>
+            <h4 className="text-2xl font-serif mb-4 text-white">Interested in {project.category}?</h4>
             <p className="text-ivory/60 mb-8 font-light">Let's create something iconic together.</p>
             <Link to="/contact" className="text-sm tracking-[0.2em] uppercase border-b border-gold-metallic pb-1 hover:text-gold-metallic transition-colors">Start a Project</Link>
           </div>

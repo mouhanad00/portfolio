@@ -1,20 +1,11 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import VideoPlayer from './VideoPlayer';
 import '../index.css';
 
 const ProjectAccordionItem = ({ project, isActive, onToggle }) => {
     const [isHovered, setIsHovered] = useState(false);
-    const videoRef = useRef(null);
     const contentRef = useRef(null);
-
-    useEffect(() => {
-        if (isHovered && videoRef.current) {
-            videoRef.current.play().catch(e => console.log('Autoplay prevented', e));
-        } else if (videoRef.current) {
-            videoRef.current.pause();
-            videoRef.current.currentTime = 0;
-        }
-    }, [isHovered]);
 
     return (
         <div
@@ -25,16 +16,15 @@ const ProjectAccordionItem = ({ project, isActive, onToggle }) => {
         >
             <div className="accordion-header">
                 <div className="accordion-visual">
-                    <img src={project.image} alt={project.title} className="accordion-img" />
-                    {project.videoUrl && (
-                        <video
-                            ref={videoRef}
-                            src={project.videoUrl}
-                            muted
-                            loop
-                            playsInline
-                            className={`accordion-video ${isHovered ? 'visible' : ''}`}
+                    {project.video ? (
+                        <VideoPlayer
+                            src={project.video}
+                            className={`accordion-video visible`}
                         />
+                    ) : (
+                        <div className="accordion-video visible flex items-center justify-center bg-black-deep text-gold-metallic/50 text-[8px] tracking-[0.3em] uppercase">
+                            Video uploading...
+                        </div>
                     )}
                     <div className="visual-overlay"></div>
                 </div>
@@ -56,15 +46,11 @@ const ProjectAccordionItem = ({ project, isActive, onToggle }) => {
                 <div className="content-inner" ref={contentRef}>
                     <div className="content-grid">
                         <div className="content-block">
-                            <span className="label">ROLE</span>
-                            <p>{project.role}</p>
-                        </div>
-                        <div className="content-block">
-                            <span className="label">YEAR</span>
-                            <p>{project.year}</p>
+                            <span className="label">CATEGORY</span>
+                            <p>{project.category}</p>
                         </div>
                         <div className="content-block description">
-                            <p>{project.description}</p>
+                            <p>{project.brief}</p>
                         </div>
                         <div className="content-action">
                             <Link to={`/project/${project.id}`} className="view-project-btn">
@@ -111,12 +97,7 @@ const ProjectAccordionItem = ({ project, isActive, onToggle }) => {
             transform: translate(-50%, -50%) scale(1);
         }
 
-        /* Active state brings visual to focus or hides it? 
-           Design rule: "Card expands vertically... Reveals project summary"
-           Let's keep the visual subtle on hover and focus on text for accordion.
-        */
-
-        .accordion-img, .accordion-video {
+        .accordion-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -190,7 +171,7 @@ const ProjectAccordionItem = ({ project, isActive, onToggle }) => {
 
         .content-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 2fr 1fr;
+            grid-template-columns: 1fr 2fr 1fr;
             gap: 2rem;
             border-top: 1px solid rgba(255,255,255,0.05);
             padding-top: 3rem;
@@ -211,6 +192,7 @@ const ProjectAccordionItem = ({ project, isActive, onToggle }) => {
             font-size: 0.9rem;
             opacity: 0.8;
             line-height: 1.6;
+            white-space: pre-line;
         }
 
         .view-project-btn {

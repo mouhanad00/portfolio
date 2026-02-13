@@ -47,7 +47,7 @@ const Layout = () => {
       <footer className="mt-16 border-t border-white/5 px-[8vw] py-16">
         <div className="flex items-center justify-between text-xs tracking-[0.05em] text-ivory/60">
           <div className="font-serif text-base font-bold tracking-[0.2em] uppercase">
-            ALEXANDER <span className="text-gold-metallic">ROSS</span>
+            MOHAMED <span className="text-gold-metallic">AKRAM</span>
           </div>
           <p>&copy; {new Date().getFullYear()} All Rights Reserved.</p>
         </div>

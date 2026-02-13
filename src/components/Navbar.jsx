@@ -39,7 +39,7 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 w-full px-8 md:px-[8vw] py-8 z-50 flex justify-between items-center transition-all duration-500 ${scrolled ? 'py-6 bg-black-deep/90 backdrop-blur-md' : ''}`}>
       <Link to="/" className="font-serif text-2xl font-bold tracking-widest uppercase text-ivory z-50">
-        Alexander <span className="text-gold-metallic">Ross</span>
+        Mohamed <span className="text-gold-metallic">Akram</span>
       </Link>
 
       <div className="hidden md:flex gap-12">
@@ -56,21 +56,21 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Icon */}
-      <button 
+      <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         className="md:hidden text-ivory z-50 focus:outline-none"
         aria-label="Toggle Menu"
       >
         <div className="space-y-2 relative w-8 h-5">
-          <motion.span 
+          <motion.span
             animate={isMenuOpen ? { rotate: 45, y: 10 } : { rotate: 0, y: 0 }}
             className="block w-8 h-[1px] bg-white absolute top-0"
           ></motion.span>
-          <motion.span 
+          <motion.span
             animate={isMenuOpen ? { opacity: 0, x: -20 } : { opacity: 1, x: 0 }}
             className="block w-6 h-[1px] bg-white ml-auto absolute top-2 right-0"
           ></motion.span>
-          <motion.span 
+          <motion.span
             animate={isMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
             className="block w-8 h-[1px] bg-white absolute bottom-0"
           ></motion.span>
@@ -102,9 +102,9 @@ const Navbar = () => {
                 </Link>
               </motion.div>
             ))}
-            
+
             {/* Social or additional links could go here */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
