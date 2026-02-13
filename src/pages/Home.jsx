@@ -33,7 +33,7 @@ const Home = () => {
           <div className="absolute inset-0 bg-black-deep/40 z-10" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black-deep/20 to-black-deep z-10" />
           <motion.img
-            src="https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg"
+            src="https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/%D9%83%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B7%D8%A9/jpeg/Still%202026-02-12%20170800_1.17.1.jpg"
             alt="Cinematic Hero"
             className="w-full h-full object-cover"
           />

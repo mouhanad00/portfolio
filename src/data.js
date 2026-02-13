@@ -3,7 +3,7 @@
 export const projects = [
     {
         id: 1,
-        title: "Polic College Movie",
+        title: "Police College Movie",
         category: "Documentaries",
         brief: "8th Police Cadet Graduation Film | Ministry of Interior (Qatar) — Documentary \nCaptured over 7.5 months of embedded access, following cadets throughout their full training journey for a film premiered at the graduation ceremony in front of Qatar’s Minister of Interior. Delivered consistently high-end cinematic lighting across multiple locations with a dedicated 10-person crew, combining drones/GoPros for action immersion with gimbal slow-motion for drama and handheld energy for high-intensity sequences.",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/Documentary/%D9%81%D9%8A%D9%84%D9%85%20%D9%83%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B7%D8%A9/%D9%81%D9%8A%D9%84%D9%85%20%D9%83%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B7%D8%A9-Final.mp4",
