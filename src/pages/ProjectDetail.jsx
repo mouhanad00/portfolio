@@ -37,13 +37,21 @@ const ProjectDetail = () => {
   const handleFullscreen = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (videoRef.current) {
-      if (videoRef.current.requestFullscreen) {
-        videoRef.current.requestFullscreen();
-      } else if (videoRef.current.webkitRequestFullscreen) { /* Safari */
-        videoRef.current.webkitRequestFullscreen();
-      } else if (videoRef.current.msRequestFullscreen) { /* IE11 */
-        videoRef.current.msRequestFullscreen();
+    const video = videoRef.current;
+    if (video) {
+      try {
+        if (video.webkitEnterFullscreen) {
+          // High priority for iOS Safari
+          video.webkitEnterFullscreen();
+        } else if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+          video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
+          video.msRequestFullscreen();
+        }
+      } catch (error) {
+        console.error("Fullscreen request failed:", error);
       }
     }
   };

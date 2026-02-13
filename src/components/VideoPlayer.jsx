@@ -11,6 +11,7 @@ const VideoPlayer = forwardRef(({ src, className = "", controls = true, onError 
             muted
             loop
             playsInline
+            webkit-playsinline="true"
             controls={controls}
             preload="metadata"
             onError={onError}
