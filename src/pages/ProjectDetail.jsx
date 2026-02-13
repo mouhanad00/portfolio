@@ -243,7 +243,7 @@ const ProjectDetail = () => {
             </div>
             <div>
               <h3 className="text-xs text-gold-metallic tracking-widest uppercase mb-4">Role</h3>
-              <p className="text-ivory/80">Cinematographer & Team Lead</p>
+              <p className="text-ivory/80">DOP</p>
             </div>
           </div>
         </div>

@@ -56,7 +56,7 @@ const Home = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="text-sm md:text-base tracking-[0.3em] uppercase text-ivory/60 font-sans max-w-md mx-auto"
           >
-            Cinematographer &middot; DOP &middot; Visual Storyteller
+            Director of photography
           </motion.p>
         </motion.div>
 
