@@ -36,7 +36,7 @@ export const projects = [
     {
         id: 3,
         title: "Sheen Cashmere",
-        category: "Ads",
+        category: "Commercials",
         brief: "Kashmir Thobes | Doha (2025) — Social Media Ad \nCinematographed a winter-collection spot built around a tactile visual hook—moving “through” a hanging ghutra to reveal layered fabric details—then resolving into clean beauty shots of the looks on models. Shot entirely in a controlled studio environment with cinema prime lenses and an on-set focus puller, shaping every highlight and texture in-camera (no “fix it in post”), and delivering under extreme time pressure after taking over the project just eight hours before shoot time in a tight studio footprint.",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/Ads/Kashmir%20add/gg.mp4",
         image: "https://storage.googleapis.com/mohamed-portfolio-media/Ads/Kashmir%20add/bts/3A8875BA-2FE7-451A-A169-3C690E9C1C39.JPG",
@@ -58,7 +58,7 @@ export const projects = [
     {
         id: 4,
         title: "مطبخ نورة",
-        category: "Ads",
+        category: "Commercial",
         brief: "Noura | Ministry of Justice (Qatar) — TVC & Social Ad (2nd AC) \nWorked as 2nd AC on a narrative-led campaign following one family’s perspective on “Noura,” culminating in the reveal of debt, a failed business, and imprisonment. Managed RED Komodo camera prep and full gear support for the DP, then stepped in mid-shoot as a camera operator to capture key B-roll; with no DIT on set, I also handled data wrangling, take logging, and rapid lens changes—maintaining continuity and pace under constant turnover. Note: This project was executed under the direction of the Lead DP; my contribution focused on camera assistance and select B-roll operation as part of the unit.",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/Ads/%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%B9%D8%AF%D9%84/nora%20draft%205.mp4",
         image: "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/nourah/jpeg/Still%202026-02-12%20171304_1.13.2.jpg",
@@ -69,15 +69,14 @@ export const projects = [
                 "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/nourah/jpeg/Still%202026-02-12%20171329_1.5.3.jpg",
                 "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/nourah/jpeg/Still%202026-02-12%20171335_1.7.2.jpg",
                 "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/nourah/jpeg/Still%202026-02-12%20171341_1.9.2.jpg",
-                "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/nourah/jpeg/Still%202026-02-12%20171348_1.11.2.jpg",
-                "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/nourah/jpeg/Still%202026-02-12%20171353_1.13.2.jpg"
+                "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/nourah/jpeg/Still%202026-02-12%20171348_1.11.2.jpg"
             ]
         }
     },
     {
         id: 5,
         title: "Lusail Club — Jersey Launch (Doha, 2024)",
-        category: "Ads",
+        category: "Commercials",
         brief: "Cinematic handheld ad with controlled lighting, focused on close-up beauty shots that elevate the jersey’s craftsmanship. Delivered across four locations in one 4PM–3AM sprint, maintaining premium quality under strict timing and permits.",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/Ads/%D9%86%D8%A7%D8%AF%D9%8A%20%D9%84%D9%88%D8%B3%D9%8A%D9%84/Lusail%20club.mp4",
         image: "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/lusail%20club/jpeg/Still%202026-02-13%20060124_1.2.2.jpg",
@@ -243,4 +242,4 @@ export const projects = [
     }
 ];
 
-export const categories = ["All", "Ads", "Digital Content", "Documentaries", "Event Coverage", "Teasers"];
+export const categories = ["All", "Commercial", "Digital Content", "Documentaries", "Event Coverage", "Teasers"];

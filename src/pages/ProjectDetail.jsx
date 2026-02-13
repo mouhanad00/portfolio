@@ -187,7 +187,7 @@ const ProjectDetail = () => {
               className="w-full flex justify-between items-end group outline-none"
             >
               <h3 className="text-4xl font-serif group-hover:text-gold-metallic transition-colors tracking-tight text-white">
-                {project.title === "مطبخ نورة" ? "Operator Selects (B-roll shot by me)" : "Operator Selects"}
+                {project.title === "مطبخ نورة" ? "Operator Selects (B-roll shot by me)" : "Film Stills"}
               </h3>
               <div className="flex flex-col items-end">
                 <span className="text-[10px] text-gold-metallic tracking-[0.3em] uppercase mb-2">Process</span>
