@@ -161,8 +161,8 @@ export const projects = [
         title: "General Assembly Meeting Coverage (Government Event) — Doha, 2026",
         category: "Event Coverage",
         brief: "Led a fast-paced, high-sensitivity news coverage shoot for an official governmental assembly, delivering a polished recap tailored for Instagram, Snapchat, and TikTok. Managed a compact on-ground team and executed stabilized gimbal coverage under tight time constraints to capture key moments, VIP interactions, and essential atmosphere within a one-hour window.",
-        video: "",
-        image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
+        video: "https://storage.googleapis.com/mohamed-portfolio-media/Event%20coverage/%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%20%D8%A7%D9%84%D8%AC%D9%85%D8%B9%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B9%D9%85%D9%88%D9%85%D9%8A%D8%A9%20%D8%B1%D9%82%D9%85%20%D9%A4%D9%A9/%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%20%D8%A7%D9%84%D8%AC%D9%85%D8%B9%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B9%D9%85%D9%88%D9%85%D9%8A%D8%A9%20%D8%B1%D9%82%D9%85%2049.mp4",
+        image: "https://storage.googleapis.com/mohamed-portfolio-media/Event%20coverage/%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%20%D8%A7%D9%84%D8%AC%D9%85%D8%B9%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B9%D9%85%D9%88%D9%85%D9%8A%D8%A9%20%D8%B1%D9%82%D9%85%20%D9%A4%D9%A9/%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%20%D8%A7%D9%84%D8%AC%D9%85%D8%B9%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B9%D9%85%D9%88%D9%85%D9%8A%D8%A9%20%D8%B1%D9%82%D9%85%2049.mp4",
         bts: {
             stills: []
         }
@@ -183,7 +183,7 @@ export const projects = [
         title: "درب الساعي",
         category: "Event Coverage",
         brief: "Darb Al Saai | Ministry of Interior (Qatar) — Event Recap \nServed as lead cinematographer covering the Ministry of Interior’s booth at Darb Al Saai, directing a four-person capture team plus editor and coordinator to deliver a same-day recap. With the venue’s large footprint and detail-heavy requirements, I split operators across key zones while prioritizing the main moments myself, then did a full sweep to secure high-quality “safety coverage” for every area—ensuring the edit was complete and consistent by end of day.",
-        video: "https://storage.googleapis.com/mohamed-portfolio-media/Event%20coverage/darb%20alsa3y%202026/%D8%AF%D8%B1%D8%A8%20%D8%A7%D9%84%D8%B3%D8%AC%D9%8A%202.mp4",
+        video: "https://storage.googleapis.com/mohamed-portfolio-media/Event%20coverage/darb%20alsa3y%202026/%D8%AF%D8%B1%D8%A8%20%D8%A7%D9%84%D8%B3%D8%B9%D9%8A2.mp4",
         image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
         bts: {
             stills: []

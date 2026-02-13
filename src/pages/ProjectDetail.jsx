@@ -213,19 +213,20 @@ const ProjectDetail = () => {
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className="overflow-hidden"
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-16">
+                  <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 pt-16 space-y-6">
                     {project.bts.stills.map((imgUrl, i) => (
                       <motion.div
                         key={i}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                        className="break-inside-avoid"
                       >
                         <img
                           src={imgUrl}
                           alt={`Shot from operator selects ${i + 1}`}
                           loading="lazy"
-                          className="w-full h-full object-contain object-center aspect-video bg-black/40"
+                          className="w-full h-auto block"
                         />
                       </motion.div>
                     ))}
