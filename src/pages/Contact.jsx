@@ -25,29 +25,32 @@ const Contact = () => {
 
       <style>{`
         .contact-page {
-          padding-top: calc(var(--spacing-section) + 80px);
+          /* Critical fix for fixed header overlap */
+          padding-top: 160px;
+
           padding-bottom: var(--spacing-section);
           padding-left: 8vw;
           padding-right: 8vw;
+
           display: flex;
           justify-content: center;
         }
 
         .contact-container {
-          max-width: 600px;
+          max-width: 620px;
           width: 100%;
         }
 
         .contact-title {
           font-size: clamp(2.5rem, 4vw, 4rem);
-          margin-bottom: 3rem;
+          margin-bottom: 4rem;
           font-weight: 700;
         }
 
         .contact-details {
           display: flex;
           flex-direction: column;
-          gap: 2.5rem;
+          gap: 2.8rem;
         }
 
         .detail-group {
@@ -59,13 +62,13 @@ const Contact = () => {
         .detail-label {
           font-family: var(--font-sans);
           font-size: 0.75rem;
-          letter-spacing: 0.2em;
+          letter-spacing: 0.22em;
           color: var(--color-gold-metallic);
         }
 
         .detail-link {
           font-family: var(--font-serif);
-          font-size: 1.4rem;
+          font-size: 1.45rem;
           color: white;
           text-decoration: none;
           transition: color 0.3s ease;
@@ -73,6 +76,12 @@ const Contact = () => {
 
         .detail-link:hover {
           color: var(--color-gold-metallic);
+        }
+
+        @media (max-width: 900px) {
+          .contact-page {
+            padding-top: 140px;
+          }
         }
       `}</style>
     </div>
