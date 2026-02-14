@@ -20,18 +20,27 @@ const Contact = () => {
               +97466251786
             </a>
           </div>
+
+          <div className="detail-group">
+            <span className="detail-label">WHATSAPP</span>
+            <a
+              href="https://wa.me/97466251786"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="detail-link whatsapp-link"
+            >
+              <span className="whatsapp-icon">🟢</span> Chat on WhatsApp
+            </a>
+          </div>
         </div>
       </div>
 
       <style>{`
         .contact-page {
-          /* Critical fix for fixed header overlap */
           padding-top: 160px;
-
           padding-bottom: var(--spacing-section);
           padding-left: 8vw;
           padding-right: 8vw;
-
           display: flex;
           justify-content: center;
         }
@@ -76,6 +85,16 @@ const Contact = () => {
 
         .detail-link:hover {
           color: var(--color-gold-metallic);
+        }
+
+        .whatsapp-link {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+        }
+
+        .whatsapp-icon {
+          font-size: 1rem;
         }
 
         @media (max-width: 900px) {
