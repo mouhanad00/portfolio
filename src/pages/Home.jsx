@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import PortfolioSection from '../components/PortfolioSection';
 
 const HERO_IMAGES = [
-  //"https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/%D9%83%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B7%D8%A9/jpeg/Still%202026-02-12%20170746_1.13.1.jpg",
   "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/%D9%83%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B7%D8%A9/jpeg/Still%202026-02-12%20170753_1.15.1.jpg",
   //"https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/%D9%83%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B4%D8%B7%D8%A9/jpeg/Still%202026-02-12%20170817_1.22.1.jpg",
   "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/nourah/jpeg/Still%202026-02-12%20171329_1.5.3.jpg",
