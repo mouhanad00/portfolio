@@ -9,7 +9,7 @@ const PortfolioSection = ({ limit = null }) => {
   const filteredProjects = useMemo(() => {
     let result = projects;
     if (activeCategory !== "All") {
-      result = projects.filter(p => p.category === activeCategory);
+      return projects.filter(p => p.category === activeCategory);
     }
     return limit ? result.slice(0, limit) : result;
   }, [activeCategory, limit]);

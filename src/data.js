@@ -214,7 +214,7 @@ export const projects = [
     {
         id: 15,
         title: "Watan Training",
-        category: "Teasers",
+        category: "Campaign",
         brief: "Tamreen Watan 2024 | Ministry of Interior (Qatar) — Advertising Teaser Campaign \nShot cinematic teaser coverage for an official advertising campaign supporting a two-week national exercise, capturing premium close-ups and beauty details as Camera B under intensive production days (8am–3am) within a sensitive, permit-heavy environment involving VIP protocols and active military/police participation. The deliverables (three short teasers plus one master cut) combine high-end lighting with dynamic action visuals—FPV drone and GoPros—to build suspense and anticipation for the Ministry’s social media rollout.",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/teasers/watan%20teasers/%5B%20%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AF%D9%81%D8%A7%D8%B9%20X%20%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9%20%5D-%201.mp4",
         image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
@@ -273,7 +273,43 @@ export const projects = [
         bts: {
             stills: []
         }
+    },
+    {
+        id: 19,
+        title: "Kids in Book Fair",
+        category: "Event Coverage",
+        brief: "Kids in Book Fair — Event coverage capturing key moments, activities, and interactions at the book fair.",
+        role: "DoP",
+        video: "https://storage.googleapis.com/mohamed-portfolio-media/content%20creation/Kids%20in%20book%20fair.MP4",
+        image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
+        bts: {
+            stills: []
+        }
+    },
+    {
+        id: 20,
+        title: "Promo 1",
+        category: "Campaign",
+        brief: "Campaign Promo 1 — High-end advertising campaign promo captured with professional cinematic composition and design.",
+        role: "DoP",
+        video: "https://storage.googleapis.com/mohamed-portfolio-media/teasers/CAMPAIGN/promo%201%20final%20draft.MOV",
+        image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
+        bts: {
+            stills: []
+        }
+    },
+    {
+        id: 21,
+        title: "Promo 3",
+        category: "Campaign",
+        brief: "Campaign Promo 3 — Professional campaign teaser demonstrating mastery of lighting, pacing, and mood.",
+        role: "DoP",
+        video: "https://storage.googleapis.com/mohamed-portfolio-media/teasers/CAMPAIGN/promo%203%20d1.MOV",
+        image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
+        bts: {
+            stills: []
+        }
     }
 ];
 
-export const categories = ["All", "Commercial", "Digital Content", "Documentaries", "Event Coverage", "Teasers"];
+export const categories = ["All", "Commercial", "Digital Content", "Documentaries", "Event Coverage", "Campaign"];
