@@ -142,7 +142,7 @@ export const projects = [
     {
         id: 9,
         title: "Sheikh Faisal Al Thani Museum",
-        category: "Documentaries",
+        category: "Digital Content",
         brief: "Museum Portrait — documenting heritage and individual legacy through intimate cinematography.",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/Documentary/Sarah/sarah%20edited.mp4",
         image: "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/Sarah/jpeg/Still%202026-02-12%20174149_1.2.1.jpg",
@@ -194,7 +194,7 @@ export const projects = [
         title: "Kids Expo",
         category: "Event Coverage",
         brief: "Kids Expo | Ministry of Interior (Qatar) — Event Recap \nLed on-site production as lead cinematographer and team lead, delivering a polished same-day recap (plus live stories) under tight time constraints with editing running on location. Navigated a crowded VIP opening walkthrough by securing key establishing frames early, then shifting to 45–90° angles and detail-driven close-ups to maintain clean compositions and dynamic coverage—published on the Ministry’s official Instagram.",
-        video: "https://storage.googleapis.com/mohamed-portfolio-media/Event%20coverage/%D9%85%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%83%D8%B3%D8%A8%D9%88%20%D8%A7%D9%84%D8%A7%D8%B7%D9%81%D8%A7%D9%84%20(%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AF%D8%A7%D8%AE%D9%84%D9%8A%D8%A9)/%D9%85%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%83%D8%B3%D8%A8%D9%88%20%D8%A7%D9%84%D8%A7%D8%B7%D9%81%D8%A7%D9%84.MP4",
+        video: "https://storage.googleapis.com/mohamed-portfolio-media/Event%20coverage/%D9%85%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%83%D8%B3%D8%A8%D9%88%20%D9%84%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84%20(%D9%88%D8%B2%D8%A7%D8%B1%D8%A9%20%D8%A7%D9%84%D8%AF%D8%A7%D8%AE%D9%84%D9%8A%D8%A9)/%D9%85%D8%B9%D8%B1%D8%B6%20%D8%A7%D9%83%D8%B3%D8%A8%D9%88%20%D8%A7%D9%84%D8%A7%D8%B7%D9%81%D8%A7%D9%84.MP4",
         image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
         bts: {
             stills: []
@@ -257,6 +257,18 @@ export const projects = [
         category: "Digital Content",
         brief: "Director of Photography — digital content project with a cinematic editorial approach.",
         video: "https://storage.googleapis.com/mohamed-portfolio-media/digital%20content/Digital%20content/%D9%83%D9%81%D9%88%20-%20Ahmed%20Bin%20Khalid.MP4",
+        image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
+        bts: {
+            stills: []
+        }
+    },
+    {
+        id: 18,
+        title: "Ministry of Justice Ad",
+        category: "Commercial",
+        brief: "Ministry of Justice Ad — social campaign work captured with a fast-moving, detail-driven approach.",
+        role: "Second AC",
+        video: "https://storage.googleapis.com/mohamed-portfolio-media/digital%20content/Digital%20content/%202%20%D8%A7%D9%84%D8%AD%D9%8A%D9%8A%D9%86.mp4",
         image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
         bts: {
             stills: []

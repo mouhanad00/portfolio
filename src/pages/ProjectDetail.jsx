@@ -254,7 +254,7 @@ const ProjectDetail = () => {
             </div>
             <div>
               <h3 className="text-xs text-gold-metallic tracking-widest uppercase mb-4">Role</h3>
-              <p className="text-ivory/80">DOP</p>
+              <p className="text-ivory/80">{project.role || 'DOP'}</p>
             </div>
           </div>
         </div>
