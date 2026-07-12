@@ -58,6 +58,7 @@ const ProjectDetail = () => {
 
   if (!project) return <div className="h-screen flex items-center justify-center text-ivory">Project not found</div>;
 
+  const shouldPreserveAspect = project.id === 2 || project.id === 17;
   const nextProjectId = project.id === projects.length ? 1 : project.id + 1;
   const nextProject = projects.find(p => p.id === nextProjectId);
 
@@ -74,7 +75,8 @@ const ProjectDetail = () => {
             <VideoPlayer
               ref={videoRef}
               src={activeVideoUrl}
-              className="w-full h-full object-cover object-top"
+              fitMode={shouldPreserveAspect ? 'contain' : 'cover'}
+              className="w-full h-full"
               onError={() => setHasVideoError(true)}
             />
           ) : project.image ? (

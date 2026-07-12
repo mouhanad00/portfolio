@@ -1,7 +1,11 @@
 import { forwardRef } from 'react';
 
-const VideoPlayer = forwardRef(({ src, className = "", controls = true, onError }, ref) => {
+const VideoPlayer = forwardRef(({ src, className = "", controls = true, onError, fitMode = "cover" }, ref) => {
     if (!src) return null;
+
+    const fitClassName = fitMode === 'contain'
+        ? 'object-contain object-center'
+        : 'object-cover object-top';
 
     return (
         <video
@@ -15,7 +19,7 @@ const VideoPlayer = forwardRef(({ src, className = "", controls = true, onError 
             controls={controls}
             preload="metadata"
             onError={onError}
-            className={`w-full h-full object-cover object-top ${className}`}
+            className={`w-full h-full ${fitClassName} ${className}`.trim()}
         >
             <source src={src} />
             Your browser does not support the video tag.

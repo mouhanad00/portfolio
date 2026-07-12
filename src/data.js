@@ -239,6 +239,28 @@ export const projects = [
         bts: {
             stills: []
         }
+    },
+    {
+        id: 16,
+        title: "QF Graduation",
+        category: "Digital Content",
+        brief: "Director of Photography — digital content project captured for a graduation moment.",
+        video: "https://storage.googleapis.com/mohamed-portfolio-media/digital%20content/Digital%20content/Graduation%20of%20QF.mp4",
+        image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
+        bts: {
+            stills: []
+        }
+    },
+    {
+        id: 17,
+        title: "Kafu",
+        category: "Digital Content",
+        brief: "Director of Photography — digital content project with a cinematic editorial approach.",
+        video: "https://storage.googleapis.com/mohamed-portfolio-media/digital%20content/Digital%20content/%D9%83%D9%81%D9%88%20-%20Ahmed%20Bin%20Khalid.MP4",
+        image: "https://storage.googleapis.com/mohamed-portfolio-media/extras/DSC00830.jpg.jpeg",
+        bts: {
+            stills: []
+        }
     }
 ];
 

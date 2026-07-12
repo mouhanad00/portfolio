@@ -2,12 +2,14 @@ import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import PortfolioSection from '../components/PortfolioSection';
 
+const HERO_IMAGE_VERSION = '20260711';
+
 const HERO_IMAGES = [
-  "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/%D9%83%D9%84%D9%8A%D8%A9%20%D8%A7%D9%84%D8%B4%D8%B1%D8%B7%D8%A9/jpeg/Still%202026-02-12%20170800_1.17.1.jpg",
-  "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/كلية%20الشرطة/jpeg/Still%202026-02-12%20170817_1.22.1.jpg",
-  "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/nourah/jpeg/Still%202026-02-12%20171329_1.5.3.jpg",
-  "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/nourah/jpeg/Still%202026-02-12%20171348_1.11.2.jpg",
-  "https://storage.googleapis.com/mohamed-portfolio-media/stills/stills/%D8%A7%D8%B9%D8%A7%D8%AF%D8%A9%20%D8%AA%D8%A7%D9%87%D9%8A%D9%84%20%D8%A7%D9%84%D8%B3%D8%AC%D9%8A%D9%86/jpeg/Still%202026-02-12%20165620_1.13.1.jpg",
+  `https://storage.googleapis.com/mohamed-portfolio-media/home%20page%20photos/Screenshot%202026-07-11%20at%209.29.25%E2%80%AFam.png?v=${HERO_IMAGE_VERSION}`,
+  `https://storage.googleapis.com/mohamed-portfolio-media/home%20page%20photos/Screenshot%202026-07-11%20at%209.31.32%E2%80%AFam.png?v=${HERO_IMAGE_VERSION}`,
+  `https://storage.googleapis.com/mohamed-portfolio-media/home%20page%20photos/Screenshot%202026-07-11%20at%209.32.03%E2%80%AFam.png?v=${HERO_IMAGE_VERSION}`,
+  `https://storage.googleapis.com/mohamed-portfolio-media/home%20page%20photos/Screenshot%202026-07-11%20at%209.34.00%E2%80%AFam.png?v=${HERO_IMAGE_VERSION}`,
+  `https://storage.googleapis.com/mohamed-portfolio-media/home%20page%20photos/Screenshot%202026-07-11%20at%209.35.12%E2%80%AFam.png?v=${HERO_IMAGE_VERSION}`
 ];
 
 const Home = () => {
@@ -55,7 +57,7 @@ const Home = () => {
               initial={false}
               animate={{ opacity: index === currentImageIndex ? 1 : 0 }}
               transition={{ duration: 1.2, ease: "easeInOut" }}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover object-center"
             />
           ))}
         </motion.div>
